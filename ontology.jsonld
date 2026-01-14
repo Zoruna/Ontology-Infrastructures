@@ -1,36 +1,78 @@
 {
   "@context": {
-    "pso": "https://pso-framework.org/schema/",
-    "philosophy": "https://ontology.logic-arch.org/terms/",
-    "name": "http://schema.org/name",
-    "description": "http://schema.org/description",
-    "tension": "pso:hasTensionWith",
-    "requirement": "pso:requiresStability"
+    "osf": "https://pso-framework.org/schema/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "bio": "https://levin-lab.org/ontology/morphogenesis/",
+    "info": "https://philosophy-of-information.org/terms/",
+    "description": "schema:description",
+    "name": "schema:name"
   },
   "@graph": [
     {
-      "@id": "philosophy:LeibnizianCompossibility",
-      "@type": "philosophy:LogicalConstraint",
-      "name": "Compossibility",
-      "description": "A exigência de consistência mútua entre essências em um campo de operação.",
-      "tension": "philosophy:NietzscheanBecoming"
+      "@id": "osf:AxiomOfCosmicIndifference",
+      "@type": "osf:MetaphysicalGrounding",
+      "name": "Axioma da Indiferença Cósmica",
+      "description": "O estado basal do sistema (Universo/Infrosfera) onde value=null. Define que nenhuma operação tem legitimidade a priori, exigindo validação técnica a posteriori.",
+      "osf:setsDefaultState": "osf:Entropy",
+      "rdfs:comment": "Para o Arquiteto Lógico, isso funciona como um 'Null Hypothesis' para qualquer auditoria de sentido."
     },
     {
-      "@id": "philosophy:NietzscheanBecoming",
-      "@type": "philosophy:DynamicForce",
-      "name": "Becoming (Devir)",
-      "description": "O fluxo de potência e a negação de essências estáticas em favor da operação contínua.",
-      "requirement": "philosophy:LeibnizianCompossibility"
+      "@id": "osf:LeibnizianCompossibility",
+      "@type": "osf:LogicalConstraint",
+      "name": "Compossibilidade (Leibniz)",
+      "description": "A propriedade de um conjunto de operações coexistirem no mesmo espaço de agência sem gerarem contradição estrutural (Panic/Crash).",
+      "osf:opposes": "osf:NietzscheanBecoming",
+      "osf:failureCondition": "osf:SystemicCollapse",
+      "info:relatedConcept": "Consistency in Distributed Systems (CAP Theorem)"
     },
     {
-      "@id": "pso:PrincipleOfOperationalSufficiency",
-      "@type": "pso:AuditingProtocol",
-      "name": "PSO",
-      "description": "O mediador lógico que verifica se o Devir é Compossível com a estabilidade do sistema.",
-      "appliesTo": [
-        "https://ontology.logic-arch.org/agents/AI-Agent",
-        "https://ontology.logic-arch.org/agents/Xenobot"
-      ]
+      "@id": "osf:NietzscheanBecoming",
+      "@type": "osf:DynamicForce",
+      "name": "Devir (Nietzsche)",
+      "description": "O fluxo de entrada de novas potências ou dados no sistema. É a fonte da inovação (Delta-Result), mas também do risco (Perturbação).",
+      "osf:requiresRegulationBy": "osf:PrincipleOfOperationalSufficiency",
+      "bio:equivalentTo": "Exploratory Morphogenesis"
+    },
+    {
+      "@id": "osf:PrincipleOfOperationalSufficiency",
+      "@type": "osf:AuditingAlgorithm",
+      "name": "PSO (Princípio de Suficiência Operativa)",
+      "description": "O protocolo lógico que arbitra a tensão entre o Devir (Força) e a Compossibilidade (Estrutura).",
+      "osf:logicGate": {
+        "@type": "osf:ConditionalLogic",
+        "if": {
+          "and": [
+            {"var": "DeltaResult", "operator": ">", "value": "BasalState"},
+            {"var": "SystemicRisk", "operator": "<", "value": "CollapseThreshold"},
+            {"var": "Reversibility", "value": true}
+          ]
+        },
+        "then": "osf:OperationApproved",
+        "else": "osf:OperationDenied"
+      }
+    },
+    {
+      "@id": "osf:TeleonomicAgent",
+      "@type": ["schema:Thing", "bio:CompetentSystem"],
+      "name": "Agente Teleonômico",
+      "description": "Qualquer entidade (Bot, Xenobot, DAO) capaz de perseguir estados-alvo (goals) dentro de um horizonte cognitivo limitado.",
+      "info:inhabits": "osf:Infosphere",
+      "bio:hasCompetencyLevel": [
+        "Homeostasis",
+        "Learning",
+        "Meta-Cognition"
+      ],
+      "osf:mustAdhereTo": "osf:LeibnizianCompossibility"
+    },
+    {
+      "@id": "osf:Infosphere",
+      "@type": "info:Environment",
+      "name": "Infosfera (Floridi)",
+      "description": "O ambiente informacional onde os agentes operam. O PSO garante que a Infosfera não sofra degradação entrópica irreversível.",
+      "osf:sustainabilityMetric": "osf:EffectEquity"
     }
   ]
 }
