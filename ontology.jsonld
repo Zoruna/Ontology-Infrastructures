@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "pso": "https://pso-framework.org/schema/",
+    "philosophy": "https://ontology.logic-arch.org/terms/",
+    "name": "http://schema.org/name",
+    "description": "http://schema.org/description",
+    "tension": "pso:hasTensionWith",
+    "requirement": "pso:requiresStability"
+  },
+  "@graph": [
+    {
+      "@id": "philosophy:LeibnizianCompossibility",
+      "@type": "philosophy:LogicalConstraint",
+      "name": "Compossibility",
+      "description": "A exigência de consistência mútua entre essências em um campo de operação.",
+      "tension": "philosophy:NietzscheanBecoming"
+    },
+    {
+      "@id": "philosophy:NietzscheanBecoming",
+      "@type": "philosophy:DynamicForce",
+      "name": "Becoming (Devir)",
+      "description": "O fluxo de potência e a negação de essências estáticas em favor da operação contínua.",
+      "requirement": "philosophy:LeibnizianCompossibility"
+    },
+    {
+      "@id": "pso:PrincipleOfOperationalSufficiency",
+      "@type": "pso:AuditingProtocol",
+      "name": "PSO",
+      "description": "O mediador lógico que verifica se o Devir é Compossível com a estabilidade do sistema.",
+      "appliesTo": [
+        "https://ontology.logic-arch.org/agents/AI-Agent",
+        "https://ontology.logic-arch.org/agents/Xenobot"
+      ]
+    }
+  ]
+}
